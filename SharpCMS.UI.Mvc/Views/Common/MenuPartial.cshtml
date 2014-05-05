@@ -1,0 +1,15 @@
+﻿@using SharpCMS.Service.Views
+@using SharpCMS.UI.Mvc.Models.Common
+@model MainMenuModel
+@{
+    Layout = null;
+}
+
+@Html.Raw("<ul class='menu'>")
+@foreach (SiteNodeView siteNode in Model.SiteNodes)
+{
+<li class="menu-item">
+    <a class="menu-item-link" href="@siteNode.Url">@siteNode.Title</a>
+</li>
+}
+@Html.Raw("</ul>")

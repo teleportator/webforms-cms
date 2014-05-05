@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4ACC4F5E-57F8-435B-A191-36310D5C2EB4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpCMS.Service</RootNamespace>
+    <AssemblyName>SharpCMS.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IoC\ServiceFactory.cs" />
+    <Compile Include="Messages\Announcement\AddAnnouncementRequest.cs" />
+    <Compile Include="Messages\Announcement\AddAnnouncementResponse.cs" />
+    <Compile Include="Messages\Announcement\DeleteAnnouncementRequest.cs" />
+    <Compile Include="Messages\Announcement\DeleteAnnouncementResponse.cs" />
+    <Compile Include="Messages\Announcement\FindAnnouncementRequest.cs" />
+    <Compile Include="Messages\Announcement\FindAnnouncementResponse.cs" />
+    <Compile Include="Messages\Announcement\FindAnnouncementsRequest.cs" />
+    <Compile Include="Messages\Announcement\FindAnnouncementsResponse.cs" />
+    <Compile Include="Mappers\AnnouncementExtensions.cs" />
+    <Compile Include="Messages\Vacancy\AddVacancyRequest.cs" />
+    <Compile Include="Messages\Vacancy\AddVacancyResponse.cs" />
+    <Compile Include="Messages\Vacancy\DeleteVacancyRequest.cs" />
+    <Compile Include="Messages\Vacancy\DeleteVacancyResponse.cs" />
+    <Compile Include="Messages\Vacancy\FindVacanciesRequest.cs" />
+    <Compile Include="Messages\Vacancy\FindVacanciesResponse.cs" />
+    <Compile Include="Messages\Vacancy\FindVacancyRequest.cs" />
+    <Compile Include="Messages\Vacancy\FindVacancyResponse.cs" />
+    <Compile Include="Mappers\VacancyExtensions.cs" />
+    <Compile Include="Messages\Comment\AddCommentRequest.cs" />
+    <Compile Include="Messages\Comment\AddCommentResponse.cs" />
+    <Compile Include="Messages\Comment\DeleteCommentRequest.cs" />
+    <Compile Include="Messages\Comment\DeleteCommentResponse.cs" />
+    <Compile Include="Messages\Comment\FindCommentRequest.cs" />
+    <Compile Include="Messages\Comment\FindCommentResponse.cs" />
+    <Compile Include="Messages\Comment\FindCommentsRequest.cs" />
+    <Compile Include="Messages\Comment\FindCommentsResponse.cs" />
+    <Compile Include="Mappers\CommentExtensions.cs" />
+    <Compile Include="Messages\Idea\AddIdeaRequest.cs" />
+    <Compile Include="Messages\Idea\AddIdeaResponse.cs" />
+    <Compile Include="Messages\Idea\DeleteIdeaRequest.cs" />
+    <Compile Include="Messages\Idea\DeleteIdeaResponse.cs" />
+    <Compile Include="Messages\Idea\FindIdeaRequest.cs" />
+    <Compile Include="Messages\Idea\FindIdeaResponse.cs" />
+    <Compile Include="Messages\Idea\FindIdeasRequest.cs" />
+    <Compile Include="Messages\Idea\FindIdeasResponse.cs" />
+    <Compile Include="Mappers\IdeaExtensions.cs" />
+    <Compile Include="Messages\Company\FindCompaniesRequest.cs" />
+    <Compile Include="Messages\Company\FindCompaniesResponse.cs" />
+    <Compile Include="Messages\Company\FindCompanyRequest.cs" />
+    <Compile Include="Messages\Company\FindCompanyResponse.cs" />
+    <Compile Include="Messages\Company\DeleteCompanyRequest.cs" />
+    <Compile Include="Messages\Company\DeleteCompanyResponse.cs" />
+    <Compile Include="Messages\Company\AddCompanyRequest.cs" />
+    <Compile Include="Messages\Company\AddCompanyResponse.cs" />
+    <Compile Include="ContentService.cs" />
+    <Compile Include="Mappers\ArticleExtensions.cs" />
+    <Compile Include="Mappers\CompanyExtensions.cs" />
+    <Compile Include="Mappers\NewsExtensions.cs" />
+    <Compile Include="Mappers\SiteNodeExtensions.cs" />
+    <Compile Include="Messages\Article\AddArticleRequest.cs" />
+    <Compile Include="Messages\Article\AddArticleResponse.cs" />
+    <Compile Include="Messages\Article\DeleteArticleRequest.cs" />
+    <Compile Include="Messages\Article\DeleteArticleResponse.cs" />
+    <Compile Include="Messages\Article\FindArticleRequest.cs" />
+    <Compile Include="Messages\Article\FindArticleResponse.cs" />
+    <Compile Include="Messages\Article\FindChildArticlesRequest.cs" />
+    <Compile Include="Messages\Article\FindChildArticlesResponse.cs" />
+    <Compile Include="Messages\Article\SaveArticleRequest.cs" />
+    <Compile Include="Messages\Article\SaveArticleResponse.cs" />
+    <Compile Include="Messages\Navigation\AddNodeRequest.cs" />
+    <Compile Include="Messages\Navigation\AddNodeResponse.cs" />
+    <Compile Include="Messages\Navigation\DeleteNodeRequest.cs" />
+    <Compile Include="Messages\Navigation\DeleteNodeResponse.cs" />
+    <Compile Include="Messages\Navigation\FindMainMenuNodesRequest.cs" />
+    <Compile Include="Messages\Navigation\FindMainMenuNodesResponse.cs" />
+    <Compile Include="Messages\Navigation\FindNodesRequest.cs" />
+    <Compile Include="Messages\Navigation\FindNodesResponse.cs" />
+    <Compile Include="Messages\Navigation\SaveNodeRequest.cs" />
+    <Compile Include="Messages\Navigation\SaveNodeResponse.cs" />
+    <Compile Include="Messages\News\AddNewsRequest.cs" />
+    <Compile Include="Messages\News\AddNewsResponse.cs" />
+    <Compile Include="Messages\News\DeleteNewsRequest.cs" />
+    <Compile Include="Messages\News\DeleteNewsResponse.cs" />
+    <Compile Include="Messages\News\FindNewsCollectionRequest.cs" />
+    <Compile Include="Messages\News\FindNewsCollectionResponse.cs" />
+    <Compile Include="Messages\News\FindNewsRequest.cs" />
+    <Compile Include="Messages\News\FindNewsResponse.cs" />
+    <Compile Include="Messages\News\SaveNewsRequest.cs" />
+    <Compile Include="Messages\News\SaveNewsResponse.cs" />
+    <Compile Include="Messages\ResponseBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Messages\Company\SaveCompanyRequest.cs" />
+    <Compile Include="Messages\Company\SaveCompanyResponse.cs" />
+    <Compile Include="Messages\Idea\SaveIdeaRequest.cs" />
+    <Compile Include="Messages\Idea\SaveIdeaResponse.cs" />
+    <Compile Include="Messages\Comment\SaveCommentRequest.cs" />
+    <Compile Include="Messages\Comment\SaveCommentResponse.cs" />
+    <Compile Include="Messages\Vacancy\SaveVacancyRequest.cs" />
+    <Compile Include="Messages\Vacancy\SaveVacancyResponse.cs" />
+    <Compile Include="Messages\Announcement\SaveAnnouncementRequest.cs" />
+    <Compile Include="Messages\Announcement\SaveAnnouncementResponse.cs" />
+    <Compile Include="Views\AnnouncementView.cs" />
+    <Compile Include="Views\ArticleView.cs" />
+    <Compile Include="Views\CommentView.cs" />
+    <Compile Include="Views\CompanyView.cs" />
+    <Compile Include="Views\IdeaView.cs" />
+    <Compile Include="Views\NewsView.cs" />
+    <Compile Include="Views\SiteNodeView.cs" />
+    <Compile Include="Views\SiteNodeViewCollection.cs" />
+    <Compile Include="Views\VacancyView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpCMS.Infrastructure\SharpCMS.Infrastructure.csproj">
+      <Project>{1A7F245C-B899-4A65-AF06-7C15AC8CDC43}</Project>
+      <Name>SharpCMS.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpCMS.Model\SharpCMS.Model.csproj">
+      <Project>{CBFC9255-3DAE-442D-B0F4-9854B630B30A}</Project>
+      <Name>SharpCMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpCMS.Repository.EF\SharpCMS.Repository.EF.csproj">
+      <Project>{DD67B855-9A1D-41AC-8CD2-67802CEC9557}</Project>
+      <Name>SharpCMS.Repository.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

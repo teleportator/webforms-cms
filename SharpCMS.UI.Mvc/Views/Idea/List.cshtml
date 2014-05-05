@@ -1,0 +1,69 @@
+﻿@using SharpCMS.Service.Views
+@using SharpCMS.UI.Mvc.Models.Ideas
+@model IdeaListModel
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+	{
+		<div class="editor-menu-underlayer"></div>
+		<div class="editor-menu">
+			<ul>
+				<li class="editor-menu-delimiter"><span>добавление<br/>разделов</span></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "idea", id = Model.Id })"><span>Идеи</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "idea", new { id = Model.Id })"><span>Новая идея</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("edit", "article", new { type = "idea", id = Model.Id })"><span>Изменить раздел</span></a>
+				</li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("delete", "article", new { id = Model.Id })" onclick="if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false;"><span>Удалить раздел</span></a>
+				</li>
+			</ul>
+		</div>
+	}
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")    
+    <div class="idea-add">
+        <a href="@Url.Action("propose", "idea", new { id = ViewContext.RouteData.Values["id"] })" class="idea-add-new">
+            Добавить идею
+        </a>
+    </div>
+</div>
+<div class="right-page-content">
+    @Html.Action("Display", "Article")
+    <div class="ideas">
+        @if (Model.Ideas.Any())
+		{
+            <ul class="ideas-list">
+                @foreach (IdeaView idea in Model.Ideas)
+				{
+                    <li class="idea-list-item">
+                        <h4 class="idea-header">							
+							<a href="@Url.Action("display", new { id = idea.Id })">@Html.Raw(idea.Title)</a>
+                            @if (!idea.IsActive)
+							{
+                                <span class="item-activity">откл.</span>
+							}
+                        </h4>
+                        <p>@Html.Raw(idea.Abstract)</p>
+                        <div class="idea-info">
+                            <span class="idea-created">@Html.Raw(idea.Created)</span>
+                            <span class="idea-author" title="автор идеи">@Html.Raw(idea.CreatedBy)</span>
+                        </div>
+                    </li>
+				}
+            </ul>
+		}
+		else
+		{
+            <span class="empty-list">Нет ни одной новой идеи.</span>
+		}
+    </div>
+</div>

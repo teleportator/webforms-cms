@@ -1,0 +1,11 @@
+﻿@using SharpCMS.UI.Mvc.Models.Articles
+@model ArticleDisplayModel
+
+@{
+    Layout = null;
+}
+
+<div class="article-content">
+    <h1>@Html.Raw(Model.Title)</h1>
+    @Html.Raw(Model.Text)
+</div>

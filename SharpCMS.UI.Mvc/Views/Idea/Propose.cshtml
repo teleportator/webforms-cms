@@ -1,0 +1,77 @@
+﻿@using SharpCMS.UI.Mvc.Models.Ideas
+@model IdeaProposeModel
+<div class="left-page-content">
+</div>
+<div class="right-page-content">
+    <div class="form-content">
+        <h1>Добавление идей</h1>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>
+                <strong>Внимательно</strong> всё проверьте перед публикацией. После публикации вы
+                не сможете отредактировать идею.</p>
+            <p>
+                Грамотная речь и четко выраженные мысли повысят ваши шансы пройти модерацию.</p>
+            using (Html.BeginForm())
+            {
+                <table class="item-details">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="item-details-label">@Html.LabelFor(m => m.CategoryId)</span>
+                                @Html.DropDownListFor(m => m.CategoryId,
+                                            new SelectList(Model.Categories, "Key", "Value"),
+                                            new Dictionary<string, object>
+                                                {
+                                                    {"style", "width:400px;"},
+                                                    {"class", "item-details-property"}
+                                                })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="item-details-label">@Html.LabelFor(m => m.Title)</span>
+                                @Html.TextBoxFor(m => m.Title, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+                                <span class="item-details-sublabel">Заголовок должен быть наполнен смыслом, чтобы можно
+                                    было понять, о чем будет идея. Максимум 200 символов.</span>
+                                @Html.ValidationMessageFor(m => m.Title)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="item-details-label">@Html.LabelFor(m => m.Abstract)</span>
+                                @Html.TextAreaFor(m => m.Abstract, new {rows = "5", @class = "item-details-property", style = "width: 400px;"})
+                                <span class="item-details-sublabel">Постарайтесь коротко изложить основной смысл идеи.
+                                    Максимум 200 символов.</span>
+                                @Html.ValidationMessageFor(m => m.Abstract)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="item-details-label">@Html.LabelFor(m => m.Text)</span>
+                                @Html.TextAreaFor(m => m.Text, new {rows = "7", @class = "item-details-property", style = "width: 400px;"})
+                                <span class="item-details-sublabel">Постарайтесь коротко изложить основной смысл идеи.
+                                    Максимум 4000 символов.</span>
+                                @Html.ValidationMessageFor(m => m.Text)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="Добавить идею" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        }
+        else
+        {
+            <div class="info-text">
+                <span>
+                    Только зарегистрированные пользователи могут предлагать идеи.
+                    <a href="@Url.Action("LogOn", "Account", new {returnUrl = Request.Url.PathAndQuery})">Войдите</a>, пожалуйста.
+                </span>
+            </div>
+        }
+    </div>
+</div>

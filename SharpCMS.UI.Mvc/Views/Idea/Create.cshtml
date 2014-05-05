@@ -1,0 +1,129 @@
+﻿@using SharpCMS.UI.Mvc.Models.Ideas
+@model IdeaCreateModel
+           
+@section HeaderContent{
+	<script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/ckfinder/ckfinder.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/ckeditor/adapters/jquery.js")" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript">
+	    $(document).ready(function () {
+	        $("#Text").ckeditor();
+	        $("#create-idea-button").click(function () { $("#create-idea-form").submit(); return false; });
+	    })
+	</script>
+}
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+			<ul>
+				<li class="editor-menu-item">
+					<a id="create-idea-button" class="editor-menu-item-link" href='#'><span>Сохранить</span></a>
+				</li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Model.ParentUrl"><span>Отмена</span></a>
+				</li>
+			</ul>
+        </div>
+    }
+}
+
+<div class="left-page-content"></div>
+<div class="right-page-content">
+	@using (Html.BeginForm("Create", "Idea", FormMethod.Post, new {id = "create-idea-form"}))
+	{
+		<table class="item-details">
+			<tbody>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.ParentTitle)</span>
+						@Html.TextBoxFor(m => m.ParentTitle, new {@readonly = "readonly", @class = "item-details-property", style = "width: 400px;"})
+					</td>
+				</tr>
+                <tr>
+                    <td>
+                        <span class="item-details-label">@Html.LabelFor(m => m.CategoryId)</span>
+                        @Html.DropDownListFor(m => m.CategoryId,
+                                    new SelectList(Model.Categories, "Key", "Value"),
+                                    new Dictionary<string, object>
+                                        {
+                                            {"style", "width:400px;"},
+                                            {"class", "item-details-property"}
+                                        })
+                    </td>
+                </tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Title)</span>
+						@Html.TextBoxFor(m => m.Title, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>
+						@Html.ValidationMessageFor(m => m.Title)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Abstract)</span>
+						@Html.TextAreaFor(m => m.Abstract, new {@class = "item-details-property", rows = "5", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>						
+						@Html.ValidationMessageFor(m => m.Abstract)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Text)</span>
+						@Html.TextAreaFor(m => m.Text, new {@class = "item-details-property", rows = "10"})
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-property">
+							@Html.CheckBoxFor(m => m.IsActive)
+							@Html.LabelFor(m => m.IsActive)
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Keywords)</span>
+						@Html.TextBoxFor(m => m.Keywords, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>											
+						@Html.ValidationMessageFor(m => m.Keywords)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Description)</span>
+						@Html.TextBoxFor(m => m.Description, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.SortOrder)</span>
+						@Html.TextBoxFor(m => m.SortOrder, new {@class = "item-details-property", style = "width: 400px;"})
+						<span class="item-details-sublabel">Целое число в диапазоне от 1 до 1000</span>					
+						@Html.ValidationMessageFor(m => m.SortOrder)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-property">
+							@Html.CheckBoxFor(m => m.DisplayOnMainMenu)
+							@Html.LabelFor(m => m.DisplayOnMainMenu)
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-property">
+							@Html.CheckBoxFor(m => m.DisplayOnSideMenu, new {disabled = "disabled"})
+							@Html.LabelFor(m => m.DisplayOnSideMenu)
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	}
+</div>

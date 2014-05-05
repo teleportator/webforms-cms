@@ -1,0 +1,38 @@
+﻿@using SharpCMS.Service.Views
+@using SharpCMS.UI.Mvc.Models.Comments
+@model CommentsListModel
+@{
+    Layout = null;
+}
+<div id="comments-block-wrapper">
+    @if (Model.Comments.Any())
+    {
+        <ul class="comments-list">
+            @foreach (CommentView comment in Model.Comments)
+            {
+                <li class="comments-list-item">
+                    <div class="comment-info">
+                        <span class="comment-author" title="автор комментария">@comment.CreatedBy,</span>
+                        <span class="comment-created">@comment.Created</span>
+                        @if (User.IsInRole("Administrators"))
+                        {
+                            @Ajax.ActionLink("удалить", "Remove",
+                                new RouteValueDictionary
+                                {
+                                    { "id", comment.Id },
+                                    { "contentItemId", ViewContext.RouteData.Values["id"] } 
+                                },
+                                new AjaxOptions { UpdateTargetId = "comments-block-wrapper" })
+                        }
+                    </div>
+                    <div class="comment-text">@Html.Raw(comment.Text)</div>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <span class="empty-list">Нет ни одного комментария.</span>
+    }
+    @Html.Action("Create")
+</div>

@@ -1,0 +1,44 @@
+﻿@using SharpCMS.UI.Mvc.Models.Companies
+@model CompanyDisplayModel
+           
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+            <ul>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("edit", "company", new { id = Model.Id })"><span>Изменить</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("delete", "company", new { id = Model.Id })" onclick=" if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false; "><span>Удалить</span></a>
+                </li>
+            </ul>
+        </div>
+    }
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+    <div class="organization-properties">
+        <img class="organization-logo" src="@Model.LogoUrl" alt="@Html.Raw(Model.Title)" title="@Html.Raw(Model.Title)"/>
+        <span class="item-details-label">Адрес:</span>
+        <span class="item-details-property">@Model.Address</span>
+        <span class="item-details-label">Телефон:</span>
+        <span class="item-details-property">@Model.Phone</span>
+        <span class="item-details-label">E-mail:</span>
+        <span class="item-details-property">
+            <a href="@("mailto:" + Model.Email)">@Model.Email</a>
+        </span>
+        <span class="item-details-label">Веб-сайт:</span>
+        <span class="item-details-property">
+            <a href="@("http://" + Model.Hyperlink)" target="_blank">@Model.Hyperlink</a>
+        </span>
+    </div>
+</div>
+<div class="right-page-content">
+    <div class="organization-content">
+        <h1>@Html.Raw(Model.Title)</h1>
+        @Html.Raw(Model.Text)
+    </div>
+</div>

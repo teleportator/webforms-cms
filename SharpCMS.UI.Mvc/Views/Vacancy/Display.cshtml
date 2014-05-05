@@ -1,0 +1,56 @@
+﻿@using SharpCMS.UI.Mvc.Models.Vacancies
+@model VacancyDisplayModel
+           
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+            <ul>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("edit", "vacancy", new { id = Model.Id })"><span>Изменить вакансию</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("delete", "vacancy", new { id = Model.Id })" onclick=" if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false; "><span>Удалить вакансию</span></a>
+                </li>
+            </ul>
+        </div>
+    }
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+    <div class="vacancy-properties">
+    	<span class="item-details-label">Организация:</span>
+        <span class="item-details-property">@Html.DisplayTextFor(m => m.Employer)</span>
+        <span class="item-details-label">Контактная информация:</span>
+        <span class="item-details-property">@Html.DisplayTextFor(m => m.Contact)</span>
+    </div>
+</div>
+<div class="right-page-content">
+    <div class="vacancy-content">
+        <h1>@Html.Raw(Model.Title)</h1>
+		@Html.Raw(Model.Text)
+        <h2>Обязанности</h2>
+        <ul class="list-field">
+        @foreach (var responsibility in Model.Responsibilities)
+        {
+            <li><p>@Html.Raw(responsibility)</p></li>
+        }
+        </ul>
+        <h2>Требования</h2>
+        <ul class="list-field">
+        @foreach (var demand in Model.Demands)
+        {
+            <li><p>@Html.Raw(demand)</p></li>
+        }
+        </ul>
+        <h2>Условия</h2>
+        <ul class="list-field">
+        @foreach (var condition in Model.Conditions)
+        {
+            <li><p>@Html.Raw(condition)</p></li>
+        }
+        </ul>
+    </div>
+</div>

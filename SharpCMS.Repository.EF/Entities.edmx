@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EntityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EntityModelStoreContainer">
+          <EntitySet Name="SharpCMS_Announcements" EntityType="EntityModel.Store.SharpCMS_Announcements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_Articles" EntityType="EntityModel.Store.SharpCMS_Articles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_Comments" EntityType="EntityModel.Store.SharpCMS_Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_Companies" EntityType="EntityModel.Store.SharpCMS_Companies" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_Ideas" EntityType="EntityModel.Store.SharpCMS_Ideas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_News" EntityType="EntityModel.Store.SharpCMS_News" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_SiteNodes" EntityType="EntityModel.Store.SharpCMS_SiteNodes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SharpCMS_Vacancies" EntityType="EntityModel.Store.SharpCMS_Vacancies" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="SharpCMS_Announcements">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="StartingDate" Type="datetime" Nullable="false" />
+          <Property Name="ExpiryDate" Type="datetime" Nullable="false" />
+          <Property Name="Venue" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="StartingTime" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Organizer" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Contact" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="SharpCMS_Articles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="SharpCMS_Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="SharpCMS_Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Logo" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="PhoneNumber" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Hyperlink" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="SharpCMS_Ideas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Category" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Rating" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SharpCMS_News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="PublishedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SharpCMS_SiteNodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="DisplayOnMainMenu" Type="bit" Nullable="false" />
+          <Property Name="DisplayOnSideMenu" Type="bit" Nullable="false" />
+          <Property Name="ContentItemId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+          <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SharpCMS_Vacancies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Abstract" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Keywords" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Employer" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Contact" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Responsibilities" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Demands" Type="nvarchar" Nullable="false" MaxLength="1024" />
+          <Property Name="Conditions" Type="nvarchar" Nullable="false" MaxLength="1024" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SharpCMS.Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities">
+          <EntitySet Name="Articles" EntityType="SharpCMS.Model.Article" />
+          <EntitySet Name="SiteNodes" EntityType="SharpCMS.Model.SiteNode" />
+          <EntitySet Name="NewsCollection" EntityType="SharpCMS.Model.News" />
+          <EntitySet Name="Companies" EntityType="SharpCMS.Model.Company" />
+          <EntitySet Name="Ideas" EntityType="SharpCMS.Model.Idea" />
+          <EntitySet Name="Comments" EntityType="SharpCMS.Model.Comment" />
+          <EntitySet Name="Vacancies" EntityType="SharpCMS.Model.Vacancy" />
+          <EntitySet Name="Announcements" EntityType="SharpCMS.Model.Announcement" />
+        </EntityContainer>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" a:StoreGeneratedPattern="None" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="ParentId" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Abstract" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Keywords" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Updated" Type="DateTime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SiteNode">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="DisplayOnMainMenu" Nullable="false" />
+          <Property Type="Boolean" Name="DisplayOnSideMenu" Nullable="false" />
+          <Property Type="Guid" Name="ContentItemId" Nullable="false" />
+          <Property Type="Int32" Name="SortOrder" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Abstract" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PublishedDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Abstract" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Logo" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Hyperlink" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Idea">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Abstract" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Rating" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Vacancy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Abstract" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Employer" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Responsibilities" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Demands" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Conditions" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ParentId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Abstract" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="Keywords" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="String" Name="UpdatedBy" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartingDate" Nullable="false" />
+          <Property Type="DateTime" Name="ExpiryDate" Nullable="false" />
+          <Property Type="String" Name="Venue" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StartingTime" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Organizer" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EntityModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Articles"><EntityTypeMapping TypeName="SharpCMS.Model.Article"><MappingFragment StoreEntitySet="SharpCMS_Articles">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+            <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+            <ScalarProperty Name="Created" ColumnName="Created" />
+            <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+            <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+            <ScalarProperty Name="Text" ColumnName="Text" />
+            <ScalarProperty Name="Updated" ColumnName="Updated" />
+            <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SiteNodes">
+            <EntityTypeMapping TypeName="SharpCMS.Model.SiteNode">
+              <MappingFragment StoreEntitySet="SharpCMS_SiteNodes">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="ContentItemId" ColumnName="ContentItemId" />
+                <ScalarProperty Name="DisplayOnSideMenu" ColumnName="DisplayOnSideMenu" />
+                <ScalarProperty Name="DisplayOnMainMenu" ColumnName="DisplayOnMainMenu" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsCollection">
+            <EntityTypeMapping TypeName="SharpCMS.Model.News">
+              <MappingFragment StoreEntitySet="SharpCMS_News">
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="SharpCMS.Model.Company">
+              <MappingFragment StoreEntitySet="SharpCMS_Companies">
+                <ScalarProperty Name="Hyperlink" ColumnName="Hyperlink" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ideas">
+            <EntityTypeMapping TypeName="SharpCMS.Model.Idea">
+              <MappingFragment StoreEntitySet="SharpCMS_Ideas">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="SharpCMS.Model.Comment">
+              <MappingFragment StoreEntitySet="SharpCMS_Comments">
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vacancies">
+            <EntityTypeMapping TypeName="SharpCMS.Model.Vacancy">
+              <MappingFragment StoreEntitySet="SharpCMS_Vacancies">
+                <ScalarProperty Name="Conditions" ColumnName="Conditions" />
+                <ScalarProperty Name="Demands" ColumnName="Demands" />
+                <ScalarProperty Name="Responsibilities" ColumnName="Responsibilities" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Employer" ColumnName="Employer" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="SharpCMS.Model.Announcement">
+              <MappingFragment StoreEntitySet="SharpCMS_Announcements">
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Organizer" ColumnName="Organizer" />
+                <ScalarProperty Name="StartingTime" ColumnName="StartingTime" />
+                <ScalarProperty Name="Venue" ColumnName="Venue" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="StartingDate" ColumnName="StartingDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Entities" ZoomLevel="100">
+        <EntityTypeShape EntityType="SharpCMS.Model.Article" Width="1.5" PointX="0.75" PointY="0.75" Height="3.346396484375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SharpCMS.Model.SiteNode" Width="1.5" PointX="2.625" PointY="0.75" Height="2.7494921874999996" />
+        <EntityTypeShape EntityType="SharpCMS.Model.News" Width="1.5" PointX="4.5" PointY="0.75" Height="3.5186979166666656" />
+        <EntityTypeShape EntityType="SharpCMS.Model.Company" Width="1.5" PointX="6.375" PointY="0.75" Height="4.2879036458333335" />
+        <EntityTypeShape EntityType="SharpCMS.Model.Idea" Width="1.5" PointX="8.25" PointY="0.75" Height="3.7109993489583317" />
+        <EntityTypeShape EntityType="SharpCMS.Model.Comment" Width="1.5" PointX="0.75" PointY="4.375" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="SharpCMS.Model.Vacancy" Width="1.5" PointX="2.625" PointY="4.375" Height="4.2879036458333317" />
+        <EntityTypeShape EntityType="SharpCMS.Model.Announcement" Width="1.5" PointX="4.5" PointY="4.375" Height="4.4802050781250031" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

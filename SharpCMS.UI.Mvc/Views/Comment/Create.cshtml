@@ -1,0 +1,19 @@
+﻿@using SharpCMS.UI.Mvc.Models.Comments
+@model CommentCreateModel
+@{
+    Layout = null;
+}
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.TextAreaFor(m => m.CommentText, new { @class = "item-details-property", style = "width:400px" })
+    <div class="item-details-property">
+        <input type="submit" value="Добавить" />
+    </div>
+}
+else
+{
+    <div class="info-text">
+        <span>Только зарегистрированные пользователи могут оставлять комментарии. <a href="@Url.Action("LogOn", "Account", new { returnUrl = Request.Url.PathAndQuery })">
+            Войдите</a>, пожалуйста.</span>
+    </div>
+}

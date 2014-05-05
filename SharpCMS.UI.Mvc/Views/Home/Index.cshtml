@@ -1,0 +1,137 @@
+﻿@using SharpCMS.UI.Mvc.Infrastructure
+@using SharpCMS.UI.Mvc.Infrastructure.Abstract
+@model SharpCMS.UI.Mvc.Models.HomeModel
+@{
+	ILogoManager logoManager = new LogoManager();
+}
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+    	    <ul>
+                <li class="editor-menu-delimiter"><span>добавление<br/>разделов</span></li>
+                <li class="editor-menu-item">					
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "page", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Статьи</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "announcement", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Акции</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "vacancy", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Вакансии</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "idea", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Идеи</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "news", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Новости</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "company", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Организации</span></a>
+                </li>
+                <li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("edit", "article", new { type = "page", id = "e795efb9-dac0-439d-9276-1f44f4b54710" })"><span>Изменить раздел</span></a>
+                </li>
+            </ul>
+        </div>
+	}
+}
+<div class="left-home-content">
+    <div class="latest-news">
+        <h2>Новости</h2>
+        <ul>
+            @foreach (var newsItem in Model.LatestNews)
+            {
+                <li class="news-item">
+                    <span class="news-date">@newsItem.PublishedDate</span>
+                    <a href="@Url.Action("display", "news", new { id = newsItem.Id })">@newsItem.Title</a>
+                </li>
+			}
+        </ul>        
+        <a href="@Url.Action("list", "news", new { id = new Guid("13a2cfb5-dc64-49a5-8ab9-2f494bb0f85b") })" class="details">
+            все новости
+        </a>
+    </div>
+	<div class="info-block">
+		<h2>Волонтерство</h2>
+		@Html.Raw(Model.HomePageArticle.Text)
+	</div>
+	<div class="main-video">
+        <iframe width="640" height="510" src="http://www.youtube.com/embed/G7AtAQyA9Hc?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="actions">
+        <h2>Акции</h2>
+        <ul>
+        @foreach (var announcementGroup in Model.AnnouncementGroups)
+		{
+            <li class="actions-item">
+                <a href="@Url.Action("list", "announcement", new { id = announcementGroup.Id })" class="actions-item-link">
+                    @announcementGroup.Title
+                </a>
+                <p>@announcementGroup.Abstract</p>
+            </li>
+		}
+        </ul>
+    </div>
+    <div class="activities">
+        <div class="book">
+            <a href="@Url.Action("display", "page", new { id = new Guid("29933ec5-d984-49a5-993d-cd36081b6a9f") })">
+                <img class="book-image" src="@Url.Content("~/Content/Styles/Images/book.jpg")" alt="Книжка волонтера" />
+            </a>
+            <h4>
+                <a href="@Url.Action("display", "page", new { id = new Guid("29933ec5-d984-49a5-993d-cd36081b6a9f") })">
+                    Получи личную книжку волонтера
+                </a>
+            </h4>
+            <p>
+                У каждого гражданина есть паспорт, у истинного волонтера - его личная книжка. Заходи
+                и получи её!</p>
+        </div>
+        <div class="idea">            
+            <a href="@Url.Action("propose", "idea", new { id = new Guid("f65dbcd2-8ca4-48ca-b320-8b72d9307bd5") })">
+                <img class="idea-image" src="@Url.Content("~/Content/Styles/Images/idea.jpg")" alt="Есть идея?" />
+            </a>
+            <h4>
+                <a href="@Url.Action("propose", "idea", new { id = new Guid("f65dbcd2-8ca4-48ca-b320-8b72d9307bd5") })">
+                    Предложи свою идею
+                </a>
+            </h4>
+            <p>
+                Если ты знаешь, какие добрые акции нужны нашему городу, набирай инициативную команду
+                здесь и воплощай мечты в реальность!
+            </p>
+        </div>
+        <div class="vacancy">
+            <a href="@Url.Action("list", "vacancy", new { id = new Guid("ae3a9acf-e290-4381-821a-9c74b35f2317") })">
+                <img class="vacancy-image" src="@Url.Content("~/Content/Styles/Images/vacancy.jpg")" alt="Вакансии" />
+            </a>
+            <h4>
+                <a href="@Url.Action("list", "vacancy", new { id = new Guid("ae3a9acf-e290-4381-821a-9c74b35f2317") })">
+                    Вакансии для тебя
+                </a>
+            </h4>
+            <p>
+                Ищешь работу? В этом разделе ты можешь узнать, кому требуется твоя помощь прямо
+                сейчас.</p>
+        </div>
+    </div>
+</div>
+<div class="right-home-content">
+    <div class="organizations">
+        <h2>Организации</h2>
+        <ul>
+        @foreach (var company in Model.Companies)
+		{
+            <li class="organizations-item">                
+                <a href="@Url.Action("display", "company", new { id = new Guid(company.Id) })" class="organizations-item-link">
+                    <img src="@logoManager.GetPath(company.Logo)" alt="@company.Title" title="@company.Title"/>
+                </a>
+            </li>
+		}
+        </ul>        
+        <a href="@Url.Action("list", "company", new { id = new Guid("cf3e7ba9-df4f-4ab3-9fe4-1a1a9ed974ed") })" class="details">
+            все организации 
+        </a>
+    </div>
+</div>

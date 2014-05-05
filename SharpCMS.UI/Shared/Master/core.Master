@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="core.Master.cs" Inherits="SharpCMS.UI.Shared.Master.CoreMasterPage" %>
+<%@ Register src="~/Shared/Controls/MainMenu.ascx" TagName="MainMenu" TagPrefix="sharp" %>
+<%@ Register src="~/Shared/Controls/AuthManager.ascx" TagName="AuthManager" TagPrefix="sharp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Я волонтер Cтаврополя</title>
+    <link rel="Stylesheet" href="/Shared/Stylesheet/style.css" />
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-9677496-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ContentPlaceHolder runat="server" ID="EditorPlaceHolder" />
+    <div class="header">
+		<div class="header-content">
+			<div class="register">
+                <sharp:AuthManager runat="server" ID="AuthManager" />
+			</div>
+			<div class="logo">
+				<a class="logo-link" href="/">
+                    <span class="logo-title">Я волонтер Ставрополя</span>
+                    <span class="logo-homepage"></span>
+                </a>
+			</div>
+			<sharp:MainMenu runat="server" ID="mnuTopMenu" />
+		</div>
+	</div>
+    <asp:ContentPlaceHolder ID="MainPlaceHolder" runat="server" />
+    <div class="footer">
+        <div class="footer-content">
+        	<div class="menu-wrapper">
+                <sharp:MainMenu runat="server" ID="mnuFooterMenu" />
+        	</div>
+            <div class="copyright">
+                &copy; 2011
+                <br />
+                «Центр военно-патриотического воспитания молодежи»
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

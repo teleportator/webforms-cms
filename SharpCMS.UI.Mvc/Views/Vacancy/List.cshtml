@@ -1,0 +1,60 @@
+﻿@using SharpCMS.UI.Mvc.Models.Vacancies
+@model VacancyListModel
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+	{
+		<div class="editor-menu-underlayer"></div>
+		<div class="editor-menu">
+			<ul>
+				<li class="editor-menu-delimiter"><span>добавление<br/>разделов</span></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "vacancy", id = Model.Id })"><span>Вакансии</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "vacancy", new { id = Model.Id })"><span>Новая вакансия</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("edit", "article", new { type = "vacancy", id = Model.Id })"><span>Изменить раздел</span></a>
+				</li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("delete", "article", new { id = Model.Id })" onclick="if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false;"><span>Удалить раздел</span></a>
+				</li>
+			</ul>
+		</div>
+	}
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+</div>
+
+<div class="right-page-content">
+    @Html.Action("Display", "Article")
+    <div class="vacancies">
+        @if (Model.Vacancies.Any())
+		{
+            <ul class="vacancy-list">
+                @foreach (var vacancy in Model.Vacancies)
+				{
+                    <li class="vacancy-list-item">
+                        <h4 class="vacancy-header">
+                            @Html.ActionLink(vacancy.Title, "display", "vacancy", new { id = vacancy.Id }, null)
+                            @if (!vacancy.IsActive)
+							{
+                                <span class="item-activity">откл.</span>
+							}
+                        </h4>
+                        <p>@Html.Raw(vacancy.Employer), <span class="vacancy-date">@Html.Raw(vacancy.Created)</span></p>
+                    </li>
+				}
+            </ul>
+		}
+		else
+		{
+            <span class="empty-list">Нет ни одной открытой вакансии.</span>
+		}
+    </div>
+</div>

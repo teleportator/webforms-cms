@@ -1,0 +1,10 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+	<span>@User.Identity.Name</span>
+	@Html.ActionLink("Выход", "LogOff", "Account", null, new { @class = "register-item" })
+}
+else
+{    
+	@Html.ActionLink("Войти", "LogOn", "Account", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "register-item" })
+	@Html.ActionLink("Зарегистрироваться", "Register", "Account", null, new { @class = "register-item" })
+}

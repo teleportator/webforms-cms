@@ -1,0 +1,170 @@
+﻿@model SharpCMS.UI.Mvc.Models.Companies.CompanyCreateModel
+
+@section HeaderContent{
+	<script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/ckfinder/ckfinder.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/ckeditor/adapters/jquery.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/ajaxupload.js")" type="text/javascript"></script>
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function () {
+			$("#Text").ckeditor();
+			$("#create-company-button").click(function () { $("#create-company-form").submit(); return false; });
+
+			var uploader = new AjaxUpload("file-uploader",
+				{
+					action: "@Url.Action("Upload")",
+					responseType: "json",
+					onSubmit: function(file, extension) {
+						$("#file-loading").removeAttr("style");
+					},
+					onComplete: function(file, jsonResult) {
+						$("#LogoUrl").val(jsonResult.imageUrl);
+						$("#logo-preview").attr("src", jsonResult.imageUrl);
+						$("#file-loading").attr("style", "display:none;");
+					}
+				});
+		})
+	</script>
+}
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+			<ul>
+				<li class="editor-menu-item">
+					<a id="create-company-button" class="editor-menu-item-link" href='#'><span>Сохранить</span></a>
+				</li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Model.ParentUrl"><span>Отмена</span></a>
+				</li>
+			</ul>
+        </div>
+    }
+}
+
+<div class="left-page-content"></div>
+<div class="right-page-content">
+    @using (Html.BeginForm("Create", "Company", FormMethod.Post, new { id = "create-company-form" }))
+    {
+        <table class="item-details">
+            <tbody>
+                <tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.ParentTitle)</span>
+						@Html.TextBoxFor(m => m.ParentTitle, new {@readonly = "readonly", @class = "item-details-property", style = "width: 400px;"})
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Title)</span>
+						@Html.TextBoxFor(m => m.Title, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>
+						@Html.ValidationMessageFor(m => m.Title)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Abstract)</span>
+						@Html.TextAreaFor(m => m.Abstract, new {@class = "item-details-property", rows = "5", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>						
+						@Html.ValidationMessageFor(m => m.Abstract)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Text)</span>
+						@Html.TextAreaFor(m => m.Text, new {@class = "item-details-property", rows = "10"})
+					</td>
+				</tr>
+                <tr>
+                    <td>
+                        <span class="item-details-label">@Html.LabelFor(m => m.Address)</span>
+                        @Html.TextBoxFor(m => m.Address, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="item-details-label">@Html.LabelFor(m => m.Email)</span>
+                        @Html.TextBoxFor(m => m.Email, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+                        <span class="item-details-sublabel">Например, manager@example.com. Максимум 200 символов</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="item-details-label">@Html.LabelFor(m => m.Hyperlink)</span>
+                        @Html.TextBoxFor(m => m.Hyperlink, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+                        <span class="item-details-sublabel">Например, www.example.com. Максимум 200 символов</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+						<span class="item-details-label">@Html.LabelFor(m => m.LogoUrl)</span>
+						@Html.HiddenFor(m => m.LogoUrl)
+						<img id="logo-preview" class="item-details-property" src="@Model.LogoUrl" style="float:left" />
+						<div id="upload-wrapper" class="upload-wrapper">
+							<div id="file-uploader" class="file-uploader"><span class="file-upload-button">Сменить логотип</span></div>
+							<div id="file-loading" class="file-loading" style="display:none;"><span>Загрузка</span></div>
+						</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="item-details-label">@Html.LabelFor(m => m.PhoneNumber)</span>
+                        @Html.TextBoxFor(m => m.PhoneNumber, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+                        <span class="item-details-sublabel">Например, +7 8652 12 34 56</span>
+
+                    </td>
+                </tr>
+                <tr>
+					<td>
+						<span class="item-details-property">
+							@Html.CheckBoxFor(m => m.IsActive)
+							@Html.LabelFor(m => m.IsActive)
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Keywords)</span>
+						@Html.TextBoxFor(m => m.Keywords, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>											
+						@Html.ValidationMessageFor(m => m.Keywords)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Description)</span>
+						@Html.TextBoxFor(m => m.Description, new {@class = "item-details-property", maxlength = "200", style = "width: 400px;"})
+						<span class="item-details-sublabel">Максимум 200 символов</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.SortOrder)</span>
+						@Html.TextBoxFor(m => m.SortOrder, new {@class = "item-details-property", style = "width: 400px;"})
+						<span class="item-details-sublabel">Целое число в диапазоне от 1 до 1000</span>					
+						@Html.ValidationMessageFor(m => m.SortOrder)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-property">
+							@Html.CheckBoxFor(m => m.DisplayOnMainMenu)
+							@Html.LabelFor(m => m.DisplayOnMainMenu)
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-property">
+							@Html.CheckBoxFor(m => m.DisplayOnSideMenu, new {disabled = "disabled"})
+							@Html.LabelFor(m => m.DisplayOnSideMenu)
+						</span>
+					</td>
+				</tr>
+            </tbody>
+         </table>
+    }
+</div>

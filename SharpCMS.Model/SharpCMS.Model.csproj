@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBFC9255-3DAE-442D-B0F4-9854B630B30A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpCMS.Model</RootNamespace>
+    <AssemblyName>SharpCMS.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Announcement\Announcement.cs" />
+    <Compile Include="Article\IArticleRepository.cs" />
+    <Compile Include="Comment\Comment.cs" />
+    <Compile Include="Comment\ICommentRepository.cs" />
+    <Compile Include="Company\Company.cs" />
+    <Compile Include="Company\ICompanyRepository.cs" />
+    <Compile Include="Announcement\IAnnouncementRepository.cs" />
+    <Compile Include="Idea\Idea.cs" />
+    <Compile Include="Idea\IIdeaRepository.cs" />
+    <Compile Include="Vacancy\IVacancyRepository.cs" />
+    <Compile Include="Navigation\ISiteNodeRepository.cs" />
+    <Compile Include="Navigation\SiteNode.cs" />
+    <Compile Include="ContentItem.cs" />
+    <Compile Include="Article\Article.cs" />
+    <Compile Include="News\INewsRepository.cs" />
+    <Compile Include="News\News.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ItemBase.cs" />
+    <Compile Include="Vacancy\Vacancy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpCMS.Infrastructure\SharpCMS.Infrastructure.csproj">
+      <Project>{1A7F245C-B899-4A65-AF06-7C15AC8CDC43}</Project>
+      <Name>SharpCMS.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

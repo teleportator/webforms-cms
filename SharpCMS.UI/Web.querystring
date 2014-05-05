@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<querystring>
+    <page url="/AddIdeaItemPublic.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/AnnouncementGroup.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/AnnouncementItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Article.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/CompanyGroup.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/CompanyItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/IdeaGroup.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/IdeaItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/NewsGroup.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/NewsItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/VacancyGroup.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/VacancyItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/AddAnnouncementItem.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/AddArticle.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+        <param name="PageType" type="Text" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/AddCompanyItem.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/AddIdeaItem.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/AddNewsItem.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/AddVacancyItem.aspx" abortOnError="false">
+        <param name="ParentId" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/EditAnnouncementItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/EditArticle.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+        <param name="PageType" type="Text" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/EditCompanyItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/EditIdeaItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/EditNewsItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+    <page url="/Admin/EditVacancyItem.aspx" abortOnError="false">
+        <param name="Id" type="Guid" optional="false" casesensitive="true" />
+    </page>
+</querystring>

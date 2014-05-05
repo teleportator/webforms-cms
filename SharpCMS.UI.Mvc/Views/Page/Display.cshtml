@@ -1,0 +1,45 @@
+﻿@using SharpCMS.UI.Mvc.Models.Pages
+@model PageDisplayModel
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+    	    <ul>
+                <li class="editor-menu-delimiter"><span>добавление<br/>разделов</span></li>
+                <li class="editor-menu-item">					
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "page", id = Model.Id })"><span>Статьи</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "announcement", id = Model.Id })"><span>Акции</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "vacancy", id = Model.Id })"><span>Вакансии</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "idea", id = Model.Id })"><span>Идеи</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "news", id = Model.Id })"><span>Новости</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "company", id = Model.Id })"><span>Организации</span></a>
+                </li>
+                <li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("edit", "article", new { type = "page", id = Model.Id })"><span>Изменить раздел</span></a>
+                </li>
+				<li class="editor-menu-item">
+                    <a href="@Url.Action("delete", "article", new {id = Model.Id})" class="editor-menu-item-link" onclick="if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false;"><span>Удалить раздел</span></a>
+                </li>
+            </ul>
+        </div>
+	}
+}
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common", new {id = Model.Id})
+</div>
+<div class="right-page-content">
+    @Html.Action("Display", "Article", new { id = Model.Id })
+</div>

@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" MasterPageFile="~/Shared/Master/core.Master"
+           Inherits="SharpCMS.UI.Shared.Master.AdminMasterPage" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="EditorPlaceHolder" ID="EditorContent">
+    <asp:ContentPlaceHolder runat="server" ID="EditorPlaceHolder" />
+</asp:Content>
+
+<asp:Content runat="server" ID="MainContent" ContentPlaceHolderID="MainPlaceHolder">
+    <div class="main">
+        <div class="main-content">
+        	<div class="left-page-content">
+                <asp:ContentPlaceHolder runat="server" ID="LeftPlaceHolder" />
+            </div>
+            <div class="right-page-content">
+                <asp:ContentPlaceHolder runat="server" ID="RightPlaceHolder" />
+            </div>
+        </div>
+    </div>
+</asp:Content>

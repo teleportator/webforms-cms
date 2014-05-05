@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="page.master.cs" MasterPageFile="~/Shared/Master/core.Master"
+           Inherits="SharpCMS.UI.Shared.Master.PageMasterPage" %>
+<%@ Register src="~/Shared/Controls/SideMenu.ascx" TagName="SideMenu" TagPrefix="sharp" %>
+
+<asp:Content runat="server" ContentPlaceHolderID="EditorPlaceHolder" ID="EditorContent">
+    <asp:ContentPlaceHolder runat="server" ID="EditorPlaceHolder" />
+</asp:Content>
+
+<asp:Content ContentPlaceHolderID="MainPlaceHolder" ID="MainContent" runat="server">
+    <div class="main">
+        <div class="main-content">
+        	<div class="left-page-content">
+                <sharp:SideMenu runat="server" ID="mnuSideMenu" />
+                <asp:ContentPlaceHolder runat="server" ID="LeftPlaceHolder" />
+            </div>
+            <div class="right-page-content">
+                <asp:ContentPlaceHolder runat="server" ID="RightPlaceHolder" />
+            </div>
+        </div>
+    </div>
+</asp:Content>
+
+    

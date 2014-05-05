@@ -1,0 +1,44 @@
+﻿@using SharpCMS.UI.Mvc.Models.Ideas
+@model IdeaDisplayModel
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+            <ul>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("edit", "idea", new { id = Model.Id })"><span>Изменить идею</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("delete", "idea", new { id = Model.Id })" onclick=" if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false; "><span>Удалить идею</span></a>
+                </li>
+            </ul>
+        </div>
+    }
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+</div>
+<div class="right-page-content">
+    <div class="idea-content">
+        <h1>@Html.Raw(Model.Title)</h1>
+        @Html.Raw(Model.Text)
+        <div class="idea-info">
+            <span class="idea-created">@Html.Raw(Model.Created)</span>
+            <span class="idea-author" title="автор идеи">@Html.Raw(Model.CreatedBy)</span>
+        </div>
+    </div>
+    <div class="comments">
+        <h2>
+            комментарии</h2>
+        @using (Ajax.BeginForm("Create", "Comment", new { id = ViewContext.RouteData.Values["id"] },
+                                          new AjaxOptions { UpdateTargetId = "create-comment-form" }))
+        {
+            <div id="create-comment-form">
+                @Html.Action("List", "Comment")
+            </div>
+        }
+    </div>
+</div>

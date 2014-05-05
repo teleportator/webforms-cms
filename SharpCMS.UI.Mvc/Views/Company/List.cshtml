@@ -1,0 +1,68 @@
+﻿@using SharpCMS.UI.Mvc.Infrastructure
+@using SharpCMS.UI.Mvc.Infrastructure.Abstract
+@using SharpCMS.UI.Mvc.Models.Companies
+@model CompanyListModel
+           
+@{
+	ILogoManager logoManager = new LogoManager();
+}
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+	{
+		<div class="editor-menu-underlayer"></div>
+		<div class="editor-menu">
+			<ul>
+				<li class="editor-menu-delimiter"><span>добавление<br/>разделов</span></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "company", id = Model.Id })"><span>Организации</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "company", new {id = Model.Id})"><span>Новая организация</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("edit", "article", new { type = "company", id = Model.Id })"><span>Изменить раздел</span></a>
+				</li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("delete", "article", new {id = Model.Id})" onclick="if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false;"><span>Удалить раздел</span></a>
+				</li>
+			</ul>
+		</div>
+	}
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+</div>
+<div class="right-page-content">
+    @Html.Action("Display", "Article")
+    <div class="organizations">
+        @if (Model.Companies.Any())
+		{
+            <ul class="organization-list">
+                @foreach (var company in Model.Companies)
+				{
+                    <li class="organization-list-item">
+                        <img class="organization-logo" src="@logoManager.GetPath(company.Logo)"
+                            alt="@Html.Raw(company.Title)" title="@Html.Raw(company.Title)" />
+                        <h4 class="organization-title">
+							<a href="@Url.Action("display", "company", new { id = company.Id })">@Html.Raw(company.Title)</a>
+                            @if (!company.IsActive)
+							{
+                                <span class="item-activity">откл.</span>
+							}
+                        </h4>
+                        <p>@Html.Raw(company.Abstract)</p>
+                        <div style="clear:both;"/>
+                    </li>
+				}
+            </ul>
+		}
+		else
+		{
+            <span class="empty-list">Нет ни одной организации.</span>
+        }
+    </div>
+</div>

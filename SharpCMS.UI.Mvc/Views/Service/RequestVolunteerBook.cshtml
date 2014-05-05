@@ -1,0 +1,78 @@
+@using SharpCMS.UI.Mvc.Models.Services
+@model ServiceRequestVolunteerBookModel
+
+<div class="left-page-content">
+</div>
+<div class="right-page-content">
+	<div class="form-content">
+		<h1>Заявка на получение личной книжки волонтёра</h1>
+		<p>Все поля обязательны для заполнения.</p>
+		@using (Html.BeginForm())
+		{
+			<table class="item-details">
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.LastName)</span>
+						@Html.TextBoxFor(m => m.LastName, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.LastName)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.FirstName)</span>
+						@Html.TextBoxFor(m => m.FirstName, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.LastName)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Patronymic)</span>
+						@Html.TextBoxFor(m => m.Patronymic, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.Patronymic)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.DateOfBirth)</span>
+						@Html.TextBoxFor(m => m.DateOfBirth, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						<span class="item-details-sublabel">Например, 01.01.2011</span>
+						@Html.ValidationMessageFor(m => m.DateOfBirth)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.School)</span>
+						@Html.TextBoxFor(m => m.School, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.School)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Profession)</span>
+						@Html.TextBoxFor(m => m.Profession, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.Profession)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Phone)</span>
+						@Html.TextBoxFor(m => m.Phone, new {maxlength = "200", @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.Phone)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="item-details-label">@Html.LabelFor(m => m.Help)</span>
+						@Html.TextAreaFor(m => m.Help, new {rows = 5, @class = "item-details-property", style = "width: 400px;"})
+						@Html.ValidationMessageFor(m => m.Help)
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" value="Отправить заявку" />
+					</td>
+				</tr>
+			</table>
+		}     
+	</div>
+</div>

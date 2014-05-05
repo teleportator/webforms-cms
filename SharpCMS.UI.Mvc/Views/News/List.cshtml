@@ -1,0 +1,54 @@
+﻿@using SharpCMS.UI.Mvc.Models.News
+@model NewsListModel
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+	{
+		<div class="editor-menu-underlayer"></div>
+		<div class="editor-menu">
+			<ul>
+				<li class="editor-menu-delimiter"><span>добавление<br/>разделов</span></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "article", new { type = "news", id = Model.Id })"><span>Новости</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("create", "news", new { id = Model.Id})"><span>Новая новость</span></a>
+				</li>
+				<li class="editor-menu-delimiter"><img src="@Url.Content("~/Content/Styles/Images/editor-menu-separator.png")" alt=""/></li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("edit", "article", new { type = "news", id = Model.Id })"><span>Изменить раздел</span></a>
+				</li>
+				<li class="editor-menu-item">
+					<a class="editor-menu-item-link" href="@Url.Action("delete", "article", new {id = Model.Id})" onclick="if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false;"><span>Удалить раздел</span></a>
+				</li>
+			</ul>
+		</div>
+	}
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+</div>
+<div class="right-page-content">
+    @Html.Action("Display", "Article")
+    <div class="news">	
+        @if (Model.News.Any())
+		{
+			<ul class="news-list">
+				@foreach (var newsItem in Model.News)
+	{
+					<li class="news-list-item">
+						<span class="news-date">@newsItem.PublishedDate</span>
+						<h4 class="news-header"><a href="@Url.Action("display", "news", new { id = newsItem.Id })">@Html.Raw(newsItem.Title)</a></h4>
+						<p>@Html.Raw(newsItem.Abstract)</p>
+					</li>
+	}
+			</ul>
+		}
+		else
+		{
+            <span class="empty-list">Нет ни одной новости.</span>
+		}
+    </div>
+</div>

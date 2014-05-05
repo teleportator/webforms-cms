@@ -1,0 +1,11 @@
+﻿@using SharpCMS.UI.Mvc.Models.Ideas
+@model IdeaSuccessfullyCreatedModel
+		   
+<div class="left-page-content"></div>
+<div class="right-page-content">
+	<div class="form-content">
+		<h1>Добавление идеи</h1>
+		<p>Идея добавлена. После прохождения модерации она будет доступна на сайте.</p>
+		<p> Вернуться к <a href="@Url.Action("List", new { id = Model.ParentId })">списку идей</a>.</p>
+	</div>
+</div>

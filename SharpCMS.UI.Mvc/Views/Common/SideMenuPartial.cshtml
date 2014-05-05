@@ -1,0 +1,33 @@
+﻿@using SharpCMS.UI.Mvc.Models.Common
+@model SharpCMS.UI.Mvc.Models.Common.SideMenuModel
+@{
+	Layout = null;
+}
+@helper DisplayRecursive(IEnumerable<SideMenuLinkModel> links)
+{
+	<ul>
+		@foreach (SideMenuLinkModel link in links)
+		{
+			<li class="sidemenu-item">
+				@if (link.IsCurrent)
+				{
+					<span class="sidemenu-item-link active">@link.Title</span>
+				}
+				else
+				{
+					<a class='sidemenu-item-link @(link.Childs.HasCurrent ? "active" : String.Empty)' href="@link.Url">@link.Title</a>
+				}
+				@DisplayRecursive(link.Childs)
+			</li>
+		}
+	</ul>
+}
+<div class="sidemenu">
+	<span class="first-layer">
+		<a href="@Model.RootSectionUrl" class="first-layer-link">@Model.RootSectionTitle</a>
+	</span>
+	@if (Model.Links != null)
+	{
+		@DisplayRecursive(Model.Links)
+	}
+</div>

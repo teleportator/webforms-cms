@@ -1,0 +1,40 @@
+﻿@using SharpCMS.UI.Mvc.Models.Announcements
+@model AnnouncementDisplayModel
+
+@section AdminPanel{
+    @if (User.IsInRole("Administrators"))
+    {
+        <div class="editor-menu-underlayer"></div>
+        <div class="editor-menu">
+            <ul>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("edit", "Announcement", new {id = Model.Id})"><span>Изменить акцию</span></a>
+                </li>
+                <li class="editor-menu-item">
+                    <a class="editor-menu-item-link" href="@Url.Action("delete", "Announcement", new {id = Model.Id})" onclick=" if (confirm('Вы действительно хотите безвозвратно удалить этот элемент?') == false) return false; "><span>Удалить акцию</span></a>
+                </li>
+            </ul>
+        </div>
+    }
+}
+
+<div class="left-page-content">
+    @Html.Action("DisplaySideMenu", "Common")
+    <div class="announcement-properties">
+        <span class="item-details-label">Место проведения:</span>
+        <span class="item-details-property">@Html.DisplayTextFor(m => m.Venue)</span>
+        <span class="item-details-label">Время начала:</span>
+        <span class="item-details-property">@Html.DisplayTextFor(m => m.Time)</span>
+        <span class="item-details-label">Организатор:</span>
+        <span class="item-details-property">@Html.DisplayTextFor(m => m.Organizer)</span>        
+        <span class="item-details-label">Контактная информация:</span>
+        <span class="item-details-property">@Html.DisplayTextFor(m => m.Contact)</span>
+    </div>
+</div>
+<div class="right-page-content">
+    <div class="announcement-content">
+        <h1>@Html.DisplayTextFor(m => m.Title)</h1>
+        <span class="announcement-date">@Html.DisplayTextFor(m => m.Date)</span>
+        @Html.DisplayTextFor(m => m.Text)
+    </div>
+</div>

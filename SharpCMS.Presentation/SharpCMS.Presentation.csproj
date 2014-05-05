@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42F7594C-8772-48E4-9078-7A39B77AF9CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpCMS.Presentation</RootNamespace>
+    <AssemblyName>SharpCMS.Presentation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddArticlePageBasePresenter.cs" />
+    <Compile Include="Announcements\AddAnnouncementGroupPagePresenter.cs" />
+    <Compile Include="Announcements\AddAnnouncementItemPagePresenter.cs" />
+    <Compile Include="Announcements\AnnouncementGroupPagePresenter.cs" />
+    <Compile Include="Announcements\AnnouncementItemPagePresenter.cs" />
+    <Compile Include="Announcements\EditAnnouncementGroupPagePresenter.cs" />
+    <Compile Include="Announcements\EditAnnouncementItemPagePresenter.cs" />
+    <Compile Include="Announcements\IAddAnnouncementItemPagePresenter.cs" />
+    <Compile Include="Announcements\IAddAnnouncementItemPageView.cs" />
+    <Compile Include="Announcements\IAnnouncementGroupPagePresenter.cs" />
+    <Compile Include="Announcements\IAnnouncementGroupPageView.cs" />
+    <Compile Include="Announcements\IAnnouncementItemPagePresenter.cs" />
+    <Compile Include="Announcements\IAnnouncementItemPageView.cs" />
+    <Compile Include="Announcements\IEditAnnouncementItemPageView.cs" />
+    <Compile Include="Common\ErrorPagePresenter.cs" />
+    <Compile Include="Common\IErrorPagePresenter.cs" />
+    <Compile Include="Common\IErrorPageView.cs" />
+    <Compile Include="Companies\AddCompanyGroupPagePresenter.cs" />
+    <Compile Include="Companies\EditCompanyGroupPagePresenter.cs" />
+    <Compile Include="EditArticlePageBasePresenter.cs" />
+    <Compile Include="Forms\GetVolunteerBookPagePresenter.cs" />
+    <Compile Include="Forms\IGetVolunteerBookPagePresenter.cs" />
+    <Compile Include="Forms\IGetVolunteerBookPageView.cs" />
+    <Compile Include="Ideas\AddIdeaGroupPagePresenter.cs" />
+    <Compile Include="Ideas\AddIdeaItemPagePresenter.cs" />
+    <Compile Include="Ideas\AddIdeaItemPublicPagePresenter.cs" />
+    <Compile Include="Ideas\EditIdeaGroupPagePresenter.cs" />
+    <Compile Include="Ideas\EditIdeaItemPagePresenter.cs" />
+    <Compile Include="Ideas\IAddIdeaItemPagePresenter.cs" />
+    <Compile Include="Ideas\IAddIdeaItemPageView.cs" />
+    <Compile Include="Ideas\IAddIdeaItemPublicPagePresenter.cs" />
+    <Compile Include="Ideas\IAddIdeaItemPublicPageView.cs" />
+    <Compile Include="Ideas\IdeaGroupPagePresenter.cs" />
+    <Compile Include="Ideas\IdeaItemPagePresenter.cs" />
+    <Compile Include="Announcements\IEditAnnouncementItemPagePresenter.cs" />
+    <Compile Include="Ideas\IEditIdeaItemPagePresenter.cs" />
+    <Compile Include="Ideas\IEditIdeaItemPageView.cs" />
+    <Compile Include="Ideas\IIdeaItemPagePresenter.cs" />
+    <Compile Include="Ideas\IIdeaItemPageView.cs" />
+    <Compile Include="Ideas\IIdeaGroupPagePresenter.cs" />
+    <Compile Include="Ideas\IIdeaGroupPageView.cs" />
+    <Compile Include="InputDataUtilities.cs" />
+    <Compile Include="IoC\PresenterFactory.cs" />
+    <Compile Include="Articles\ArticlePagePresenter.cs" />
+    <Compile Include="Articles\EditArticlePagePresenter.cs" />
+    <Compile Include="Articles\IArticlePagePresenter.cs" />
+    <Compile Include="Articles\IArticlePageView.cs" />
+    <Compile Include="Articles\IAddArticlePagePresenter.cs" />
+    <Compile Include="Articles\IAddArticlePageView.cs" />
+    <Compile Include="Articles\AddArticlePagePresenter.cs" />
+    <Compile Include="Articles\IEditArticlePagePresenter.cs" />
+    <Compile Include="Articles\IEditArticlePageView.cs" />
+    <Compile Include="Companies\AddCompanyItemPagePresenter.cs" />
+    <Compile Include="Companies\CompanyGroupPagePresenter.cs" />
+    <Compile Include="Companies\CompanyItemPagePresenter.cs" />
+    <Compile Include="Companies\EditCompanyPagePresenter.cs" />
+    <Compile Include="Companies\IAddCompanyItemPagePresenter.cs" />
+    <Compile Include="Companies\IAddCompanyItemPageView.cs" />
+    <Compile Include="Companies\ICompanyGroupPagePresenter.cs" />
+    <Compile Include="Companies\ICompanyGroupPageView.cs" />
+    <Compile Include="Companies\ICompanyItemPagePresenter.cs" />
+    <Compile Include="Companies\ICompanyItemPageView.cs" />
+    <Compile Include="Companies\IEditCompanyPagePresenter.cs" />
+    <Compile Include="Companies\IEditCompanyPageView.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="HomePage\EditHomePagePresenter.cs" />
+    <Compile Include="HomePage\HomePagePresenter.cs" />
+    <Compile Include="HomePage\IEditHomePagePresenter.cs" />
+    <Compile Include="HomePage\IEditHomePageView.cs" />
+    <Compile Include="HomePage\IHomePagePresenter.cs" />
+    <Compile Include="HomePage\IHomePageView.cs" />
+    <Compile Include="IoC\ServiceFactory.cs" />
+    <Compile Include="IStaticPagePresenter.cs" />
+    <Compile Include="IPageBaseView.cs" />
+    <Compile Include="IMainMenuNodesContainer.cs" />
+    <Compile Include="News\AddNewsGroupPagePresenter.cs" />
+    <Compile Include="News\EditNewsGroupPagePresenter.cs" />
+    <Compile Include="Users\ILoginPagePresenter.cs" />
+    <Compile Include="Users\ILoginPageView.cs" />
+    <Compile Include="Users\IRegisterPagePresenter.cs" />
+    <Compile Include="Users\IRegisterPageView.cs" />
+    <Compile Include="Users\LoginPagePresenter.cs" />
+    <Compile Include="News\AddNewsItemPagePresenter.cs" />
+    <Compile Include="News\EditNewsItemPagePresenter.cs" />
+    <Compile Include="News\IAddNewsItemPagePresenter.cs" />
+    <Compile Include="News\IAddNewsItemPageView.cs" />
+    <Compile Include="News\IEditNewsItemPagePresenter.cs" />
+    <Compile Include="News\IEditNewsItemPageView.cs" />
+    <Compile Include="News\INewsGroupPagePresenter.cs" />
+    <Compile Include="News\INewsGroupPageView.cs" />
+    <Compile Include="News\INewsItemPagePresenter.cs" />
+    <Compile Include="News\INewsItemPageView.cs" />
+    <Compile Include="News\NewsGroupPagePresenter.cs" />
+    <Compile Include="News\NewsItemPagePresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticPagePresenter.cs" />
+    <Compile Include="Users\RegisterPagePresenter.cs" />
+    <Compile Include="Vacancies\AddVacancyGroupPagePresenter.cs" />
+    <Compile Include="Vacancies\AddVacancyItemPagePresenter.cs" />
+    <Compile Include="Vacancies\EditVacancyGroupPagePresenter.cs" />
+    <Compile Include="Vacancies\EditVacancyItemPagePresenter.cs" />
+    <Compile Include="Vacancies\IAddVacancyItemPagePresenter.cs" />
+    <Compile Include="Vacancies\IAddVacancyItemPageView.cs" />
+    <Compile Include="Vacancies\IEditVacancyItemPagePresenter.cs" />
+    <Compile Include="Vacancies\IEditVacancyItemPageView.cs" />
+    <Compile Include="Vacancies\IVacancyGroupPagePresenter.cs" />
+    <Compile Include="Vacancies\IVacancyGroupPageView.cs" />
+    <Compile Include="Vacancies\IVacancyItemPagePresenter.cs" />
+    <Compile Include="Vacancies\IVacancyItemPageView.cs" />
+    <Compile Include="Vacancies\VacancyGroupPagePresenter.cs" />
+    <Compile Include="Vacancies\VacancyItemPagePresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpCMS.Infrastructure\SharpCMS.Infrastructure.csproj">
+      <Project>{1A7F245C-B899-4A65-AF06-7C15AC8CDC43}</Project>
+      <Name>SharpCMS.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpCMS.Model\SharpCMS.Model.csproj">
+      <Project>{CBFC9255-3DAE-442D-B0F4-9854B630B30A}</Project>
+      <Name>SharpCMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpCMS.Repository.EF\SharpCMS.Repository.EF.csproj">
+      <Project>{DD67B855-9A1D-41AC-8CD2-67802CEC9557}</Project>
+      <Name>SharpCMS.Repository.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpCMS.Service\SharpCMS.Service.csproj">
+      <Project>{4ACC4F5E-57F8-435B-A191-36310D5C2EB4}</Project>
+      <Name>SharpCMS.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
